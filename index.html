@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Структура курса — ИИ-агенты</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Onest:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="view-path noise-low">
+  <div class="ambient" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <canvas id="particles" class="particles-canvas" hidden></canvas>
+  </div>
+
+  <div class="site-chrome" id="siteChrome">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-badge">Шаг 2</span>
+        <h1>Структура курса</h1>
+        <p class="subtitle">Сначала — маршрут: где вы сейчас и куда ведёт путь</p>
+      </div>
+      <div class="progress-strip" id="progressStrip" aria-label="Прогресс по маршруту">
+        <span class="strip-step">шаг <strong id="stepNow">2</strong> / 18</span>
+        <span class="strip-xp"><span id="xpValue">50</span> XP</span>
+        <span class="strip-level" id="levelName">Новичок</span>
+      </div>
+    </header>
+
+    <section class="position-banner" id="positionBanner" aria-live="polite">
+      <div class="banner-here">
+        <span class="banner-kicker">Вы здесь</span>
+        <p class="banner-title" id="bannerHereTitle">Структура курса</p>
+        <span class="banner-format" id="bannerHereFormat">Интерактив · 2 мин</span>
+      </div>
+      <div class="banner-sep" aria-hidden="true"></div>
+      <div class="banner-done">
+        <span class="banner-kicker">Пройдено</span>
+        <p class="banner-title" id="bannerDoneTitle">Приветственный лонгрид</p>
+        <span class="banner-check" aria-hidden="true">✓</span>
+      </div>
+    </section>
+  </div>
+
+  <main class="journey">
+    <section class="map-wrap">
+      <svg class="route-svg route-svg--legacy" id="routeSvg" viewBox="0 0 400 1200" preserveAspectRatio="xMidYMin meet" aria-hidden="true" hidden></svg>
+      <div class="map-canvas" id="mapCanvas"></div>
+      <div class="modules modules--legacy" id="modules" role="list" hidden></div>
+    </section>
+  </main>
+
+  <aside class="detail-panel" id="detailPanel" aria-live="polite">
+    <button type="button" class="panel-close" id="panelClose" aria-label="Закрыть">×</button>
+    <article id="panelContent"></article>
+    <footer class="panel-footer">
+      <button type="button" class="btn btn-primary" id="markVisited">Изучил точку маршрута</button>
+      <span class="format-chip" id="panelFormat"></span>
+    </footer>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-hidden="true"></div>
+
+  <div class="achievement-modal" id="achievementModal" hidden>
+    <div class="achievement-card">
+      <h2>Маршрут изучен</h2>
+      <p>Все точки отмечены. Можно переходить к следующим модулям курса.</p>
+      <button type="button" class="btn btn-primary" id="dismissAchievement">Продолжить</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span>Карта курса</span>
+    <span class="dot">·</span>
+    <span>акцент на пути, детали — по клику</span>
+  </footer>
+
+  <script src="course-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
